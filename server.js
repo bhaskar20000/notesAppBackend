@@ -9,6 +9,8 @@ const path = require("path");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+const PORT = process.env.PORT || 5000;
+
 const dbPath = path.join(__dirname, "notesApp.db");
 let db;
 
@@ -18,7 +20,7 @@ const initailizer = async () => {
       filename: dbPath,
       driver: sqlite3.Database,
     });
-    app.listen(5000, () => {
+    app.listen(PORT, () => {
       console.log("Server is running at http://localhost:5000");
     });
   } catch (e) {
